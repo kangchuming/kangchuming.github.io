@@ -20,7 +20,8 @@ export default defineConfig({
           { text: '虚拟列表', link: '/project/virtual-list' },
           { text: '公共组件', link: '/project/public-components' },
           { text: '埋点', link: '/project/event-tracking' },
-          { text: 'SSR', link: '/project/ssr' }
+          { text: 'SSR', link: '/project/ssr' },
+          { text: '性能优化', link: '/markdown-examples'}
         ]
       },
       {
