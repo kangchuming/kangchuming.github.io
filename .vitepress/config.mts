@@ -17,8 +17,10 @@ export default defineConfig({
       {
         text: 'Project',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: '虚拟列表', link: '/project/virtual-list' },
+          { text: '公共组件', link: '/project/public-components' },
+          { text: '埋点', link: '/project/event-tracking' },
+          { text: 'SSR', link: '/project/ssr' }
         ]
       },
       {
@@ -55,7 +57,7 @@ export default defineConfig({
           {
             text: 'Next',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
+              { text: '第三方依赖', link: '/frontend/next/third-party-dependencies' },
               { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
