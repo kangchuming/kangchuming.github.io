@@ -21,7 +21,8 @@ export default defineConfig({
           { text: '公共组件', link: '/project/public-components' },
           { text: '埋点', link: '/project/event-tracking' },
           { text: 'SSR', link: '/project/ssr' },
-          { text: '性能优化', link: '/markdown-examples'}
+          { text: '性能优化', link: '/markdown-examples'},
+          {text: 'AB实验', link: '/project/AB-experiment' },
         ]
       },
       {
