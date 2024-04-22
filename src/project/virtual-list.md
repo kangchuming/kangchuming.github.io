@@ -132,6 +132,7 @@ export default function VirtualList() {
 
   const getItemSize = useCallback((index) => {
     const item = items[index];
+    
     // 在这里计算并返回项目的尺寸
     // 你可以根据项目的内容来计算尺寸
     // 例如，如果项目是一个图片，你可以使用图片的高度作为尺寸
@@ -147,7 +148,7 @@ export default function VirtualList() {
     }
     return (
       <img
-        src={item.src}
+        src={`thumbnail-${item}.jpg`} onClick={() => showOriginal(index)}
         alt={item.alt}
         style={style}
         onError={() => {
