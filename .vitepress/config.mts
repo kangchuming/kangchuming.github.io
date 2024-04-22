@@ -21,8 +21,25 @@ export default defineConfig({
           { text: '公共组件', link: '/project/public-components' },
           { text: '埋点', link: '/project/event-tracking' },
           { text: 'SSR', link: '/project/ssr' },
-          { text: '性能优化', link: '/markdown-examples'},
-          {text: 'AB实验', link: '/project/AB-experiment' },
+          { text: 'AB实验', link: '/project/AB-experiment' },
+          {
+            text: '性能优化',
+            items: [
+              {
+                text: '网络篇',
+                items: [
+                  { text: 'webpack性能调优', link: '/markdown-examples' },
+                  { text: 'Markdown Examples', link: '/markdown-examples' }
+                ]
+              },
+              {
+                text: '存储篇',
+                items: [
+                  {text: '浏览器缓存机制', link: '/project/performanceOptimization/cache.md'}
+                ]
+              },
+            ]
+          },
         ]
       },
       {
@@ -31,7 +48,7 @@ export default defineConfig({
           {
             text: 'React',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
+              { text: 'React Vs Vue', link: '/frontend/react/react-vue' },
               { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
