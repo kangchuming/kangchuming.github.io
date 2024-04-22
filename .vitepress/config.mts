@@ -28,7 +28,7 @@ export default defineConfig({
               {
                 text: '网络篇',
                 items: [
-                  { text: 'webpack性能调优', link: '/markdown-examples' },
+                  { text: 'webpack性能调优', link: '/project/performanceOptimization/webpack' },
                   { text: 'Markdown Examples', link: '/markdown-examples' }
                 ]
               },
