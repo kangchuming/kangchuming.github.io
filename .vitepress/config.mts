@@ -43,6 +43,14 @@ export default defineConfig({
         ]
       },
       {
+        text: '手写题',
+        items: [
+          {
+            text: 'Promise', link: '/handwriting/promise'
+          }
+        ]
+      },
+      {
         text: 'Frontend',
         items: [
           {
