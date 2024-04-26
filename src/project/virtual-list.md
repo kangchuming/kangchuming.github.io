@@ -1,223 +1,122 @@
-# 项目挑战：处理大量4K图片
+# 动态列表组件开发
 
-## 问题描述
-在项目中，主要挑战是优化加载和渲染大量4K图片的性能。这些高分辨率图片可能导致页面加载速度变慢和浏览器内存消耗增大。
+在我之前的项目中，我面临一个挑战，那就是需要开发一个能够处理大量数据的列表组件，而且每个列表项的高度可能不同。传统的渲染方法会导致性能问题，因为它需要一次性渲染所有的列表项。此外，由于列表项的高度是动态的，所以在滚动过程中可能会出现页面闪烁的问题。
 
-## 解决方案：虚拟列表
+为了解决这个问题，我决定使用虚拟滚动的技术。虚拟滚动的基本思想是只渲染当前可见的列表项，这大大减少了需要渲染的列表项的数量，从而提高了性能。
 
-### 使用的技术
-- `react-window`
-- `react-infinite-loader`
+我首先使用 `useState` 来跟踪滚动位置和所有列表项的位置。然后，我创建了一个 `genOffsets` 函数来计算每个列表项的位置，这个函数基于每个列表项的高度生成一个前缀和数组。这个数组是用来确定每个列表项在列表中的位置。
 
-### 实现步骤
+然后，我计算出当前可见的列表项的开始和结束索引，并只渲染这些列表项。这是通过查找 `offsets` 数组中第一个大于 `scrollTop` 和 `scrollTop + containerHeight` 的元素来实现的。
 
-#### 1. 状态管理
-使用React的`useState`钩子来存储列表数据、加载状态和错误状态。
+为了解决页面闪烁的问题，我使用了 `flushSync` 函数来同步更新滚动位置的状态。这样可以确保滚动位置的状态始终与实际的滚动位置保持一致，从而避免了页面闪烁的问题。
 
-```jsx
-const [items, setItems] = useState([]); // 列表数据
-const [isLoading, setIsLoading] = useState(false); // 加载状态
-const [hasError, setHasError] = useState(false); // 错误状态
+此外，我还添加了一个 `resetHeight` 方法，这个方法可以用于重置列表的高度。这是通过更新 `offsets` 状态变量来实现的，这个状态变量存储了所有列表项的位置。
+
+通过使用虚拟滚动技术，我成功地开发了一个高性能的列表组件，它能够处理大量的列表项，而且每个列表项的高度可以动态变化。这个组件提供了流畅的滚动体验，即使在处理大量数据时也不会出现性能问题。此外，通过同步更新滚动位置的状态，我成功地解决了页面闪烁的问题。这个解决方案不仅满足了项目的需求，而且也提高了用户的体验。
+
+## 代码
+
+```javascript
+import { forwardRef, useState } from 'react';
+import { flushSync } from 'react-dom';
+
+// 动态列表组件
+const VariableSizeList = forwardRef(
+  ({ containerHeight, getItemHeight, itemCount, itemData, children }, ref) => {
+    ref.current = {
+      resetHeight: () => {
+        setOffsets(genOffsets());
+      }
+    };
+
+    // children 语义不好，赋值给 Component
+    const Component = children;
+    const [scrollTop, setScrollTop] = useState(0); // 滚动位置
+
+    // 根据 getItemHeight 生成 offsets
+    // 本质是前缀和
+    const genOffsets = () => {
+      const a = [];
+      a[0] = getItemHeight(0);
+      for (let i = 1; i < itemCount; i++) {
+        a[i] = getItemHeight(i) + a[i - 1];
+      }
+      return a;
+    };
+
+    // 所有 items 的位置
+    const [offsets, setOffsets] = useState(() => {
+      return genOffsets();
+    });
+
+    // 找 startIdx 和 endIdx
+    // 这里用了普通的查找，更好的方式是二分查找
+    let startIdx = offsets.findIndex((pos) => pos > scrollTop);
+    let endIdx = offsets.findIndex((pos) => pos > scrollTop + containerHeight);
+    if (endIdx === -1) endIdx = itemCount;
+
+    const paddingCount = 2;
+    startIdx = Math.max(startIdx - paddingCount, 0); // 处理越界情况
+    endIdx = Math.min(endIdx + paddingCount, itemCount - 1);
+
+    // 计算内容总高度
+    const contentHeight = offsets[offsets.length - 1];
+
+    // 需要渲染的 items
+    const items = [];
+    for (let i = startIdx; i <= endIdx; i++) {
+      const top = i === 0 ? 0 : offsets[i - 1];
+      const height = i === 0 ? offsets[0] : offsets[i] - offsets[i - 1];
+      items.push(
+        <Component
+          key={i}
+          index={i}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top,
+            width: '100%',
+            height
+          }}
+          data={itemData}
+        />
+      );
+    }
+
+    return (
+      <div
+        style={{
+          height: containerHeight,
+          overflow: 'auto',
+          position: 'relative'
+        }}
+        onScroll={(e) => {
+          flushSync(() => {
+            setScrollTop(e.target.scrollTop);
+          });
+        }}
+      >
+        <div style={{ height: contentHeight }}>{items}</div>
+      </div>
+    );
+  }
+);
 ```
 
-定义了isItemLoaded的函数
+## 代码讲解
 
-```jsx
-const isItemLoaded = index => !!items[index];
-```
+这段代码定义了一个名为 `VariableSizeList` 的 React 组件，它使用虚拟滚动技术来渲染具有不同高度的列表项。这种技术只渲染当前可见的列表项，从而提高性能。
 
-实现loadMoreItems异步函数
-```jsx
-const loadMoreItems = async (startIndex, stopIndex) => {
-  setIsLoading(true);
-  try {
-    // 假设fetchMoreItems是获取数据的异步函数
-    const newItems = await fetchMoreItems(startIndex, stopIndex);
-    setItems(prevItems => [...prevItems, ...newItems]);
-  } catch (error) {
-    setHasError(true);
-  }
-  setIsLoading(false);
-};
-```
+以下是代码的详细解释：
 
-渲染列表项组件
-```jsx
-const Item = ({ index, style }) => {
-  if (!isItemLoaded(index)) {
-    return <div style={style}>Loading...</div>;
-  } else if (hasError) {
-    return <div style={style}>Error!</div>;
-  } else {
-    return <img src={items[index].src} alt={items[index].alt} style={style} />;
-  }
-};
-```
+- `forwardRef` 是 React 的一个函数，用于在函数组件中使用 ref。在这个组件中，ref 被用于暴露一个 `resetHeight` 方法，这个方法可以用于重置列表的高度。
+- `containerHeight` 是列表的可见高度，`getItemHeight` 是一个函数，用于获取给定索引的列表项的高度，`itemCount` 是列表项的数量，`itemData` 是传递给列表项的数据，`children` 是渲染每个列表项的组件。
+- `genOffsets` 函数用于生成一个数组，其中的每个元素是到当前索引为止的所有列表项的总高度。这个数组用于计算每个列表项的位置。
+- `offsets` 是一个状态变量，用于存储所有列表项的位置。
+- `startIdx` 和 `endIdx` 是当前可见的列表项的开始和结束索引。这两个索引是通过查找 `offsets` 数组中第一个大于 `scrollTop` 和 `scrollTop + containerHeight` 的元素来获取的。
+- `paddingCount` 是一个常量，用于在可见区域之前和之后额外渲染的列表项的数量。这可以提高滚动的平滑性。
+- `contentHeight` 是所有列表项的总高度，它等于 `offsets` 数组的最后一个元素。
+- `items` 是需要渲染的列表项。对于每个需要渲染的列表项，它创建了一个 `Component` 元素，并设置了其 `key`、`index`、`style` 和 `data` 属性。
+- 最后，这个组件返回一个包含所有需要渲染的列表项的 `div` 元素。这个 `div` 元素有一个滚动事件处理器，当滚动事件发生时，它会更新 `scrollTop` 状态变量。
 
-创建无限加载列表
-```jsx
-import { FixedSizeList } from 'react-window';
-import InfiniteLoader from 'react-window-infinite-loader';
-
-<InfiniteLoader
-  isItemLoaded={isItemLoaded}
-  itemCount={1000}
-  loadMoreItems={loadMoreItems}
->
-  {({ onItemsRendered, ref }) => (
-    <FixedSizeList
-      height={500}
-      width={500}
-      itemCount={1000}
-      itemSize={35}
-      onItemsRendered={onItemsRendered}
-      ref={ref}
-    >
-      {Item}
-    </FixedSizeList>
-  )}
-</InfiniteLoader>
-```
-
-通过以上实现，我们能够有效地处理和渲染大量数据，只加载和显示用户当前可视范围内的项目，从而提高了页面性能，尤其是在处理大量数据时。
-
-# 虚拟列表优化技术
-
-虚拟列表是一种优化技术，主要用于处理大量数据的渲染。它通过只渲染当前可见的列表项，从而大大提高了大规模列表的渲染性能。
-
-## 虚拟列表的工作原理
-
-虚拟列表的核心原理是，在任何时刻，只渲染一小部分的列表项，而不是全部。这些列表项是用户当前可以看到的，或者即将看到的。当用户滚动列表时，虚拟列表会计算出新的可见列表项，并且只渲染这些列表项。这样，无论列表项的数量有多大，需要渲染的列表项的数量都是固定的，从而大大提高了渲染性能。
-
-## 虚拟列表的优化要点
-
-### 精确的滚动位置计算
-
-虚拟列表需要在用户滚动时精确地计算出新的可见列表项。这需要一个高效的算法来计算滚动位置。
-
-### 快速的列表项渲染
-
-虚拟列表需要在用户滚动时快速地渲染新的可见列表项。这需要一个高效的渲染机制来减少渲染时间。
-
-### 平滑的滚动体验
-
-虚拟列表需要提供一个平滑的滚动体验。这需要一个高效的滚动机制来减少滚动卡顿。
-
-
-```jsx
-import React, { useState, useCallback, useRef } from 'react';
-import { VariableSizeList as List } from 'react-window';
-import InfiniteLoader from 'react-window-infinite-loader';
-
-// 假设这是一个异步函数，用于获取数据
-async function fetchData(startIndex, stopIndex) {
-  // 在这里实现你的数据获取逻辑
-}
-
-export default function VirtualList() {
-  const [items, setItems] = useState([]);
-  const [hasError, setHasError] = useState(false);
-  const listRef = useRef();
-
-  const isItemLoaded = useCallback((index) => !!items[index], [items]);
-  const loadMoreItems = useCallback((startIndex, stopIndex) => {
-    return fetchData(startIndex, stopIndex)
-      .then(newItems => {
-        setItems(prev => [...prev, ...newItems]);
-      })
-      .catch(() => {
-        setHasError(true);
-      });
-  }, []);
-
-  const getItemSize = useCallback((index) => {
-    const item = items[index];
-    
-    // 在这里计算并返回项目的尺寸
-    // 你可以根据项目的内容来计算尺寸
-    // 例如，如果项目是一个图片，你可以使用图片的高度作为尺寸
-  }, [items]);
-
-  const Item = ({ index, style }) => {
-    const item = items[index];
-    if (!isItemLoaded(index)) {
-      return <div style={style}>Loading...</div>;
-    }
-    if (hasError) {
-      return <div style={style}>Error!</div>;
-    }
-    return (
-      <img
-        src={`thumbnail-${item}.jpg`} onClick={() => showOriginal(index)}
-        alt={item.alt}
-        style={style}
-        onError={() => {
-          // 在这里处理图片加载失败的情况
-          // 例如，你可以设置一个默认的图片
-        }}
-        onLoad={(e) => {
-          // 在这里处理图片加载成功的情况
-          // 例如，你可以更新项目的尺寸
-          const height = e.target.offsetHeight;
-          // 更新项目的尺寸
-          listRef.current.resetAfterIndex(index, true);
-        }}
-      />
-    );
-  };
-
-  return (
-    <InfiniteLoader
-      isItemLoaded={isItemLoaded}
-      itemCount={1000} // 你可以根据你的需求来设置这个值
-      loadMoreItems={loadMoreItems}
-    >
-      {({ onItemsRendered, ref }) => (
-        <List
-          height={500} // 你可以根据你的需求来设置这个值
-          itemCount={1000} // 你可以根据你的需求来设置这个值
-          itemSize={getItemSize}
-          onItemsRendered={onItemsRendered}
-          ref={listRef}
-        >
-          {Item}
-        </List>
-      )}
-    </InfiniteLoader>
-  );
-}
-```
-# 无限加载的虚拟列表实现
-
-这段代码使用`react-window-infinite-loader`库的`InfiniteLoader`组件和`react-window`库的`List`组件来创建一个无限加载的虚拟列表。
-
-# 无限加载虚拟列表的组件关系
-
-在这个无限加载的虚拟列表中，`InfiniteLoader`、`List`和`Item`组件之间协同工作，各自承担不同的职责。
-
-## `InfiniteLoader`组件
-
-`InfiniteLoader`是核心组件，负责管理数据加载的整个流程：
-
-- 使用`isItemLoaded`函数检查项目是否已经加载。
-- 使用`loadMoreItems`函数在需要时加载更多的项目。
-
-## `List`组件
-
-`List`是`InfiniteLoader`的子组件，负责实际的项目渲染：
-
-- 接收`itemCount`属性以知道需要渲染多少项目。
-- 接收`itemSize`函数以确定每个项目的尺寸。
-- 接收`onItemsRendered`函数，当项目被渲染时通知`InfiniteLoader`。
-- 使用`ref`来获取DOM元素的实例，以便管理滚动位置。
-
-## `Item`组件
-
-`Item`是`List`的子组件，代表列表中的单个项目：
-
-- 接收`index`属性，用于确定项目在列表中的位置。
-- 推收`style`属性，用于应用项目的样式。
-
-结合来看，`InfiniteLoader`负责数据的加载管理，`List`根据`InfiniteLoader`提供的数据渲染项目列表，而`Item`则表示列表中的单个项目。
-
-
+这个组件的主要优点是它可以处理具有不同高度的列表项，并且只渲染当前可见的列表项，从而提高性能。但是，它的缺点是它需要预先知道每个列表项的高度，这在某些情况下可能是不可能的。

@@ -22,6 +22,7 @@ export default defineConfig({
           { text: '埋点', link: '/project/event-tracking' },
           { text: 'SSR', link: '/project/ssr' },
           { text: 'AB实验', link: '/project/AB-experiment' },
+          { text: '权限管理', link: '/project/permission-management' },
           {
             text: '性能优化',
             items: [
@@ -46,7 +47,7 @@ export default defineConfig({
         text: '手写题',
         items: [
           {
-            text: 'Promise', link: '/handwriting/promise'
+            text: 'Promise', link: '/handwritten/promise.md'
           }
         ]
       },
