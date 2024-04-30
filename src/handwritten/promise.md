@@ -14,7 +14,6 @@ class SimplePromise {
               this.value = value;
           }
       };
-
       // 失败态
       let reject = reason => {
           if (this.status === 'pending') {
