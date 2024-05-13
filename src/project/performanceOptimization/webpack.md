@@ -126,3 +126,129 @@ module.exports = {
 
 一次基于 dll 的 webpack 构建过程优化，便大功告成了！
 
+#### Happypack-将loader由单进程转为多进程
+  webpack是单线程的，由happypack释放cpu在多核并发的优势
+  ```jsx
+  const HappyPack = require('happypack')
+// 手动创建进程池
+const happyThreadPool =  HappyPack.ThreadPool({ size: os.cpus().length })
+
+module.exports = {
+  module: {
+    rules: [
+      ...
+      {
+        test: /\.js$/,
+        // 问号后面的查询参数指定了处理这类文件的HappyPack实例的名字
+        loader: 'happypack/loader?id=happyBabel',
+        ...
+      },
+    ],
+  },
+  plugins: [
+    ...
+    new HappyPack({
+      // 这个HappyPack的“名字”就叫做happyBabel，和楼上的查询参数遥相呼应
+      id: 'happyBabel',
+      // 指定进程池
+      threadPool: happyThreadPool,
+      loaders: ['babel-loader?cacheDirectory']
+    })
+  ],
+}
+```
+
+#### 构建结果体积压缩
+文件结构可视化，找出导致体积过大的原因
+webpack-bundle-analyzer，配置方法和普通的 plugin 无异，它会以矩形树图的形式将包内各个模块的大小和依赖关系呈现出来。
+在使用时，我们只需要将其以插件的形式引入：
+```javascript
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+ 
+module.exports = {
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
+}
+```
+
+#### 删除冗余代码
+1. 一个比较典型的应用，就是 Tree-Shaking。
+2. 对碎片化冗余点的删除：至于粒度更细的冗余代码的去除，往往会被整合进 JS 或 CSS 的压缩或分离过程中。
+
+这里我们以当下接受度较高的 UglifyJsPlugin 为例，看一下如何在压缩过程中对碎片化的冗余代码（如 console 语句、注释等）进行自动化删除：
+
+```javascript
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+module.exports = {
+ plugins: [
+   new UglifyJsPlugin({
+     // 允许并发
+     parallel: true,
+     // 开启缓存
+     cache: true,
+     compress: {
+       // 删除所有的console语句    
+       drop_console: true,
+       // 把使用多次的静态值自动定义为变量
+       reduce_vars: true,
+     },
+     output: {
+       // 不保留注释
+       comment: false,
+       // 使输出的代码尽可能紧凑
+       beautify: false
+     }
+   })
+ ]
+}
+```
+
+#### 按需加载
+首先 webpack 的配置文件要走起来：
+
+```javacript
+output: {
+    path: path.join(__dirname, '/../dist'),
+    filename: 'app.js',
+    publicPath: defaultSettings.publicPath,
+    // 指定 chunkFilename
+    chunkFilename: '[name].[chunkhash:5].chunk.js',
+},
+```
+路由处的代码也要做一下配合：
+
+```javacript
+const getComponent => (location, cb) {
+  require.ensure([], (require) => {
+    cb(null, require('../pages/BugComponent').default)
+  }, 'bug')
+},
+...
+<Route path="/bug" getComponent={getComponent}>
+```
+对，核心就是这个方法：
+
+```javascript
+require.ensure(dependencies, callback, chunkName)
+```
+
+这是一个异步的方法，webpack 在打包时，BugComponent 会被单独打成一个文件，只有在我们跳转 bug 这个路由的时候，这个异步方法的回调才会生效，才会真正地去获取 BugComponent 的内容。这就是按需加载。
+
+#### Gzip
+具体的做法非常简单，只需要你在你的 request headers 中加上这么一句：
+
+```jsx
+accept-encoding:gzip
+```
+Gzip 是万能的吗
+首先要承认 Gzip 是高效的，压缩后通常能帮我们减少响应 70% 左右的大小。
+
+但它并非万能。Gzip 并不保证针对每一个文件的压缩都会使其变小。
+
+Gzip 压缩背后的原理，是在一个文本文件中找出一些重复出现的字符串、临时替换它们，从而使整个文件变小。根据这个原理，文件中代码的重复率越高，那么压缩的效率就越高，使用 Gzip 的收益也就越大。反之亦然
+
+
+
+
+
