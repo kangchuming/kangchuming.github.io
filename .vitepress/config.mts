@@ -30,8 +30,8 @@ export default defineConfig({
                 text: '网络篇',
                 items: [
                   { text: 'webpack性能调优', link: '/project/performanceOptimization/webpack' },
-                  { text: 'Markdown Examples', link: '/markdown-examples' }
-                ]
+                  { text: '图片选择', link: '/project/performanceOptimization/picoption.md' },
+                  { text: 'SSR', link: '/project/performanceOptimization/ssr.md' },]
               },
               {
                 text: '存储篇',
