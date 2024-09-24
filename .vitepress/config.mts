@@ -51,12 +51,13 @@ export default defineConfig({
             items: [
               { text: 'CSS', link: '/codeSnippet/project/css/snippet.md' },
             ]
-          }
+          },
           {
             text: 'Ts',
             items:[
               { text: '24.9.6', link: '/codeSnippet/project/ts/24_9_6.md' },
               { text: '24.9.12', link: '/codeSnippet/project/ts/24_9_12.md' },
+              { text: '深拷贝', link: '/codeSnippet/project/ts/24_9_19.md' },
             ]
           }
         ]
