@@ -50,6 +50,8 @@ export default defineConfig({
             text: 'CSS',
             items: [
               { text: 'CSS', link: '/codeSnippet/project/css/snippet.md' },
+              {text: 'clsx', link: '/codeSnippet/project/css/24_9_25.md'},
+              {text: 'flex:1', link: '/codeSnippet/project/css/24_9_28.md'},
             ]
           },
           {
@@ -58,6 +60,12 @@ export default defineConfig({
               { text: '24.9.6', link: '/codeSnippet/project/ts/24_9_6.md' },
               { text: '24.9.12', link: '/codeSnippet/project/ts/24_9_12.md' },
               { text: '深拷贝', link: '/codeSnippet/project/ts/24_9_19.md' },
+            ]
+          },
+          {
+            text: '网络',
+            items:[
+              {text: '传参参数类型', link: '/codeSnippet/project/network/24_9_28.md'},
             ]
           }
         ]
