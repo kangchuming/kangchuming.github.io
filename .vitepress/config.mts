@@ -20,7 +20,6 @@ export default defineConfig({
           { text: '虚拟列表', link: '/project/virtual-list' },
           { text: '公共组件', link: '/project/public-components' },
           { text: '埋点', link: '/project/event-tracking' },
-          { text: 'SSR', link: '/project/ssr' },
           { text: 'AB实验', link: '/project/AB-experiment' },
           { text: '权限管理', link: '/project/permission-management' },
           {
@@ -31,7 +30,6 @@ export default defineConfig({
                 items: [
                   { text: 'webpack性能调优', link: '/project/performanceOptimization/webpack' },
                   { text: '图片选择', link: '/project/performanceOptimization/picoption.md' },
-                  { text: 'SSR', link: '/project/performanceOptimization/ssr.md' },]
               },
               {
                 text: '存储篇',
