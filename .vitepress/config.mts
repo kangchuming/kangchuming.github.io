@@ -49,8 +49,24 @@ export default defineConfig({
             text: 'CSS',
             items: [
               { text: 'CSS', link: '/codeSnippet/project/css/snippet.md' },
+              { text: '多个styles', link: '/codeSnippet/project/css/24_9_24.md' },
               { text: 'clsx', link: '/codeSnippet/project/css/24_9_25.md' },
-              { text: 'flex:1', link: '/codeSnippet/project/css/24_9_28.md' }
+              { text: 'flex:1', link: '/codeSnippet/project/css/24_9_28.md' },
+            ]
+          },
+          {
+            text: 'network',
+            items: [
+              { text: '接口传参', link: '/codeSnippet/project/network/24_9_28.md' }
+            ]
+          },
+          {
+            text: 'ts',
+            items: [
+              { text: 'ts接口返回参数', link: '/codeSnippet/project/ts/24_9_28.md' } ,
+              { text: '深拷贝', link: '/codeSnippet/project/ts/24_9_19.md' },
+              { text: 'useRef', link: '/codeSnippet/project/ts/24_9_12.md' },
+              { text: '条件逻辑', link: '/codeSnippet/project/ts/24_9_6.md' },
             ]
           }
         ]
