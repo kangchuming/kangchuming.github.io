@@ -207,7 +207,7 @@ module.exports = {
 #### 按需加载
 首先 webpack 的配置文件要走起来：
 
-```javacript
+```jsx
 output: {
     path: path.join(__dirname, '/../dist'),
     filename: 'app.js',
@@ -218,7 +218,7 @@ output: {
 ```
 路由处的代码也要做一下配合：
 
-```javacript
+```jsx
 const getComponent => (location, cb) {
   require.ensure([], (require) => {
     cb(null, require('../pages/BugComponent').default)
