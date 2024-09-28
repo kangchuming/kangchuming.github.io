@@ -69,7 +69,7 @@ function MyComponent() {
 ```jsx
 import { ChunkExtractor } from '@loadable/server'
 const extractor = new ChunkExtractor({ statsFile })
-const jsx = extractor.collectChunks(<App></App>)
+const jsx = extractor.collectChunks(<App />)
 
 const html = renderToString(jsx)
 ```
