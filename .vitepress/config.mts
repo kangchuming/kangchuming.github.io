@@ -30,6 +30,7 @@ export default defineConfig({
                 items: [
                   { text: 'webpack性能调优', link: '/project/performanceOptimization/webpack' },
                   { text: '图片选择', link: '/project/performanceOptimization/picoption.md' },
+                ]
               },
               {
                 text: '存储篇',
