@@ -52,6 +52,7 @@ export default defineConfig({
               { text: '多个styles', link: '/codeSnippet/project/css/24_9_24.md' },
               { text: 'clsx', link: '/codeSnippet/project/css/24_9_25.md' },
               { text: 'flex:1', link: '/codeSnippet/project/css/24_9_28.md' },
+              { text: '溢出', link: '/codeSnippet/project/css/24_10_22.md' }
             ]
           },
           {
