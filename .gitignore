@@ -1,16 +1,36 @@
-# 忽略 node_modules 目录
+# Dependencies
 node_modules/
+.pnpm/
+.pnpm-store/
 
-# 忽略日志文件
-*.log
+# Environment
+.env
+.env.*
+!.env.example
+.env.local
+.env.*.local
 
-# 忽略操作系统生成的文件
-.DS_Store
-Thumbs.db
+# Keys and certificates
+*.pem
+*.key
+*.crt
+*.cert
+.ssh/
 
-# 忽略编译输出目录
+# Build
 dist/
 build/
 
-# 忽略环境配置文件
-.env
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+Thumbs.db

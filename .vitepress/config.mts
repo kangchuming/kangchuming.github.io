@@ -90,49 +90,37 @@ export default defineConfig({
             text: 'React',
             items: [
               { text: 'React Vs Vue', link: '/frontend/react/react-vue' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
           {
             text: 'Vue',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
           {
             text: 'TypeScript',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
           {
             text: 'Node',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
           {
             text: 'Next',
             items: [
               { text: '第三方依赖', link: '/frontend/next/third-party-dependencies' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
           {
             text: 'JavaScript',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
           {
             text: 'Micro Frontends',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
         ],
@@ -143,18 +131,22 @@ export default defineConfig({
           {
             text: 'Java',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
           {
             text: 'SQL',
             items: [
-              { text: 'Markdown Examples', link: '/markdown-examples' },
-              { text: 'Markdown Examples', link: '/markdown-examples' }
             ]
           },
         ],
+      },
+      {
+        text: 'Docker',
+        items: [
+          {
+            text: '部署', link: '/docker/deploy.md'
+          }
+        ]
       },
     ],
 
