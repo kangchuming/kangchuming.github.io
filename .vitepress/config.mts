@@ -148,6 +148,54 @@ export default defineConfig({
           }
         ]
       },
+      {
+        text: 'MySQL',
+        items: [
+          {
+            text: '考核总结', link: '/mysql/exam.md'
+          }
+        ]
+      },
+      {
+        text: '面试记录',
+        items: [
+          {
+            text: '腾讯',
+            items: [
+            ]
+          },
+          {
+            text: '阿里巴巴',
+            items: [
+            ]
+          },
+          {
+            text: '字节跳动',
+            items: [
+            ]
+          },
+          {
+            text: '美团',
+            items: [
+            ]
+          },
+          {
+            text: '京东',
+            items: [
+            ]
+          },
+          {
+            text: '小红书',
+            items: [
+            ]
+          },
+          {
+            text: '拼多多',
+            items: [
+            ]
+          }
+        ]
+      },
     ],
 
     socialLinks: [
