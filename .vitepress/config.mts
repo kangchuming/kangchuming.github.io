@@ -39,6 +39,12 @@ export default defineConfig({
                 ]
               }
             ]
+          },
+          {
+            text: 'AI流式图文生成',
+            items: [
+              { text: 'review', link: '/project/AITextGeneration/review.md' }
+            ]
           }
         ]
       },
