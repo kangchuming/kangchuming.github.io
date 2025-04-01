@@ -45,6 +45,12 @@ export default defineConfig({
             items: [
               { text: 'review', link: '/project/AITextGeneration/review.md' }
             ]
+          },
+          {
+            text: '微前端',
+            items: [
+              { text: '错误边界', link: '/project/microFront/errorBoundary.md' }
+            ]
           }
         ]
       },
@@ -85,7 +91,19 @@ export default defineConfig({
         text: '手写题',
         items: [
           {
-            text: 'Promise', link: '/handwritten/promise.md'
+            text: 'Promise', link: '/handwritten/promise.md',
+          }, 
+          {
+            text: '单例模式', link: '/handwritten/singleton.md'
+          },
+          {
+            text: '深拷贝', link: '/handwritten/deepClone.md'
+          },
+          {
+            text: '寄生组合继承', link: '/handwritten/inheritance.md'
+          },
+          {
+            text: 'class继承', link: '/handwritten/classInheritance.md'
           }
         ]
       },
@@ -202,6 +220,15 @@ export default defineConfig({
           }
         ]
       },
+      {text: '面试总结',
+        items:[
+          {text: '算法题',
+            items: [
+              {text: '数组中出现两次的值', link: '/interview/code/numberTwice.md'}
+            ]
+          }
+        ]
+      }
     ],
 
     socialLinks: [
