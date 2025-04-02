@@ -91,9 +91,6 @@ export default defineConfig({
         text: '手写题',
         items: [
           {
-            text: 'Promise', link: '/handwritten/promise.md',
-          }, 
-          {
             text: '单例模式', link: '/handwritten/singleton.md'
           },
           {
@@ -104,6 +101,15 @@ export default defineConfig({
           },
           {
             text: 'class继承', link: '/handwritten/classInheritance.md'
+          },
+          {
+            text: 'reduce实现map', link: '/handwritten/reduce-map.md'
+          },
+          {
+            text: '手写promise', link: '/handwritten/myPromise.md'
+          },
+          {
+            text: 'EventEmitter', link: '/handwritten/EventEmitter.md'
           }
         ]
       },
@@ -119,6 +125,20 @@ export default defineConfig({
           {
             text: 'Vue',
             items: [
+              { text: '插槽', link: '/frontend/vue/slot.md' },
+            ]
+          },
+          {
+            text: '网络',
+            items: [
+              { text: 'SSE', link: '/frontend/network/sse.md' },
+            ]
+          },
+          {
+            text: 'ES6',
+            items: [
+              { text: '箭头函数', link: '/frontend/es6/arrowFunction.md' },
+              { text: 'Generator', link: '/frontend/es6/generator.md' },
             ]
           },
           {
