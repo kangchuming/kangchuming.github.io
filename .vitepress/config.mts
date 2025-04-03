@@ -49,7 +49,8 @@ export default defineConfig({
           {
             text: '微前端',
             items: [
-              { text: '错误边界', link: '/project/microFront/errorBoundary.md' }
+              { text: '错误边界', link: '/project/microFront/errorBoundary.md' },
+              { text: 'ShdowDOM', link: '/project/microFront/shadowDOM.md' }
             ]
           }
         ]
@@ -189,6 +190,9 @@ export default defineConfig({
         items: [
           {
             text: '部署', link: '/docker/deploy.md'
+          },
+          {
+            text: '镜像优化', link: '/docker/image.md'
           }
         ]
       },
