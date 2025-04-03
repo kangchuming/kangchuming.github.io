@@ -37,6 +37,12 @@ export default defineConfig({
                 items: [
                   { text: '浏览器缓存机制', link: '/project/performanceOptimization/cache.md' }
                 ]
+              },
+              {
+                text: '代码篇',
+                items: [
+                  { text: '代码分割和预加载', link: '/project/performanceOptimization/codeSplit.md' }
+                ]
               }
             ]
           },
@@ -127,12 +133,14 @@ export default defineConfig({
             text: 'Vue',
             items: [
               { text: '插槽', link: '/frontend/vue/slot.md' },
+              { text: '错误边界', link: '/frontend/vue/capturedError.md' }
             ]
           },
           {
             text: '网络',
             items: [
               { text: 'SSE', link: '/frontend/network/sse.md' },
+              { text: '跨域', link: '/frontend/network/cors.md' }
             ]
           },
           {
