@@ -43,6 +43,12 @@ export default defineConfig({
                 items: [
                   { text: '代码分割和预加载', link: '/project/performanceOptimization/codeSplit.md' }
                 ]
+              },
+              {
+                text: '性能指标',
+                items: [
+                  { text: '性能指标', link: '/project/performanceOptimization/quota.md' }
+                ]
               }
             ]
           },
@@ -117,7 +123,16 @@ export default defineConfig({
           },
           {
             text: 'EventEmitter', link: '/handwritten/EventEmitter.md'
+          },
+          {
+            text: '快速排序', link: '/handwritten/quicksort.md'
           }
+        ]
+      },
+      {
+        text: 'milvus',
+        items: [
+          { text: 'milvus调优', link: '/milvus/latency.md' }
         ]
       },
       {
@@ -140,7 +155,8 @@ export default defineConfig({
             text: '网络',
             items: [
               { text: 'SSE', link: '/frontend/network/sse.md' },
-              { text: '跨域', link: '/frontend/network/cors.md' }
+              { text: '跨域', link: '/frontend/network/cors.md' },
+              { text: '简单请求和复杂请求', link: '/frontend/network/simpleRequest.md' }
             ]
           },
           {
@@ -167,28 +183,22 @@ export default defineConfig({
             ]
           },
           {
-            text: 'JavaScript',
+            text: 'V8',
             items: [
+              { text: '编译器和解释器', link: '/frontend/v8/interpreter.md' },
+              { text: '垃圾回收', link: '/frontend/v8/garbageCollection.md' }
             ]
-          },
-          {
-            text: 'Micro Frontends',
-            items: [
-            ]
-          },
+          }
         ],
       },
       {
         text: 'Backtend',
         items: [
           {
-            text: 'Java',
+            text: 'Node',
             items: [
-            ]
-          },
-          {
-            text: 'SQL',
-            items: [
+              { text: '并发实现', link: '/server/node/cluster.md' },
+              { text: '错误控制和redis限流', link: '/server/node/errorControl.md' }
             ]
           },
         ],
