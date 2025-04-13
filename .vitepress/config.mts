@@ -62,7 +62,14 @@ export default defineConfig({
             text: '微前端',
             items: [
               { text: '错误边界', link: '/project/microFront/errorBoundary.md' },
-              { text: 'ShdowDOM', link: '/project/microFront/shadowDOM.md' }
+              { text: 'ShdowDOM', link: '/project/microFront/shadowDOM.md' },
+              { text: '动态路由', link: '/project/microFront/router.md' }
+            ]
+          },
+          {
+            text: 'RAG',
+            items: [
+              { text: 'RAG', link: '/project/RAG/accuracy.md' }
             ]
           }
         ]
@@ -142,13 +149,15 @@ export default defineConfig({
             text: 'React',
             items: [
               { text: 'React Vs Vue', link: '/frontend/react/react-vue' },
+              { text: 'React Fiber', link: '/frontend/react/fiber.md' }
             ]
           },
           {
             text: 'Vue',
             items: [
               { text: '插槽', link: '/frontend/vue/slot.md' },
-              { text: '错误边界', link: '/frontend/vue/capturedError.md' }
+              { text: '错误边界', link: '/frontend/vue/capturedError.md' },
+              { text: 'diff', link: '/frontend/vue/diff.md' }
             ]
           },
           {
@@ -156,7 +165,8 @@ export default defineConfig({
             items: [
               { text: 'SSE', link: '/frontend/network/sse.md' },
               { text: '跨域', link: '/frontend/network/cors.md' },
-              { text: '简单请求和复杂请求', link: '/frontend/network/simpleRequest.md' }
+              { text: '简单请求和复杂请求', link: '/frontend/network/simpleRequest.md' },
+              { text: 'HTTPS', link: '/frontend/network/https.md' }
             ]
           },
           {
@@ -174,6 +184,7 @@ export default defineConfig({
           {
             text: 'Node',
             items: [
+              { text: '事件循环', link: '/frontend/node/eventLoop.md' }
             ]
           },
           {
