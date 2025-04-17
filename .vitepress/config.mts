@@ -69,7 +69,8 @@ export default defineConfig({
           {
             text: 'RAG',
             items: [
-              { text: 'RAG', link: '/project/RAG/accuracy.md' }
+              { text: 'RAG', link: '/project/RAG/accuracy.md' },
+              { text: '错误处理和降级', link: '/project/RAG/downGrade.md' }
             ]
           }
         ]
@@ -90,7 +91,8 @@ export default defineConfig({
           {
             text: 'network',
             items: [
-              { text: '接口传参', link: '/codeSnippet/project/network/24_9_28.md' }
+              { text: '接口传参', link: '/codeSnippet/project/network/24_9_28.md' },
+              { text: 'HTTP1.0/1.1/2.0', link: '/codeSnippet/project/network/http.md' }
             ]
           },
           {
@@ -133,6 +135,9 @@ export default defineConfig({
           },
           {
             text: '快速排序', link: '/handwritten/quicksort.md'
+          },
+          {
+            text: '手写柯里化', link: '/handwritten/curry.md'
           }
         ]
       },
@@ -157,7 +162,13 @@ export default defineConfig({
             items: [
               { text: '插槽', link: '/frontend/vue/slot.md' },
               { text: '错误边界', link: '/frontend/vue/capturedError.md' },
-              { text: 'diff', link: '/frontend/vue/diff.md' }
+              { text: 'diff', link: '/frontend/vue/diff.md' },
+              { text: '虚拟DOM', link: '/frontend/vue/virtualDOM.md' },
+              { text: '响应式原理', link: '/frontend/vue/responsive.md' },
+              { text: 'v-model原理', link: '/frontend/vue/v-model.md' },
+              { text: 'computed和watch', link: '/frontend/vue/computedVSwatch.md' },
+              { text: 'data为什么是函数', link: '/frontend/vue/data.md' },
+              { text: 'Vue2选项式API', link: '/frontend/vue/api.md' }
             ]
           },
           {
@@ -166,7 +177,11 @@ export default defineConfig({
               { text: 'SSE', link: '/frontend/network/sse.md' },
               { text: '跨域', link: '/frontend/network/cors.md' },
               { text: '简单请求和复杂请求', link: '/frontend/network/simpleRequest.md' },
-              { text: 'HTTPS', link: '/frontend/network/https.md' }
+              { text: 'HTTPS', link: '/frontend/network/https.md' },
+              { text: 'tcp', link: '/frontend/network/tcp.md' },
+              { text: 'get和post的区别', link: '/frontend/network/getAndPost.md' },
+              { text: 'http1.0/1.1/2.0/3.0', link: '/frontend/network/http.md' },
+              { text: '状态码', link: '/frontend/network/statusCode.md' }
             ]
           },
           {
@@ -174,11 +189,13 @@ export default defineConfig({
             items: [
               { text: '箭头函数', link: '/frontend/es6/arrowFunction.md' },
               { text: 'Generator', link: '/frontend/es6/generator.md' },
+              { text: 'promise全局错误捕捉和取消', link: '/frontend/es6/promise.md' }
             ]
           },
           {
             text: 'TypeScript',
             items: [
+              { text: 'InterfaceType', link: '/frontend/Typescript/interface_vs_type.md' }
             ]
           },
           {
@@ -198,6 +215,20 @@ export default defineConfig({
             items: [
               { text: '编译器和解释器', link: '/frontend/v8/interpreter.md' },
               { text: '垃圾回收', link: '/frontend/v8/garbageCollection.md' }
+            ]
+          },
+          {
+            text: '打包工具',
+            items: [
+              { text: 'vite vs webpack', link: '/frontend/webpack/vite_vs_webpack.md' },
+              { text: 'loader', link: '/frontend/webpack/loader.md' }
+            ]
+          },
+          {
+            text: 'CSS',
+            items: [
+              { text: '居中对齐', link: '/frontend/css/center.md' },
+              { text: 'BFC', link: '/frontend/css/bfc.md' }
             ]
           }
         ],
