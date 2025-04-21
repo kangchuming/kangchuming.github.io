@@ -63,14 +63,16 @@ export default defineConfig({
             items: [
               { text: '错误边界', link: '/project/microFront/errorBoundary.md' },
               { text: 'ShdowDOM', link: '/project/microFront/shadowDOM.md' },
-              { text: '动态路由', link: '/project/microFront/router.md' }
+              { text: '动态路由', link: '/project/microFront/router.md' },
+              { text: '微前端框架对比', link: '/project/microFront/qiankunVsMF.md' },
             ]
           },
           {
             text: 'RAG',
             items: [
               { text: 'RAG', link: '/project/RAG/accuracy.md' },
-              { text: '错误处理和降级', link: '/project/RAG/downGrade.md' }
+              { text: '错误处理和降级', link: '/project/RAG/downGrade.md' },
+              { text: '检索内容拼接', link: '/project/RAG/splicing.md' },
             ]
           }
         ]
@@ -85,8 +87,8 @@ export default defineConfig({
               { text: '多个styles', link: '/codeSnippet/project/css/24_9_24.md' },
               { text: 'clsx', link: '/codeSnippet/project/css/24_9_25.md' },
               { text: 'flex:1', link: '/codeSnippet/project/css/24_9_28.md' },
-              { text: 'overflow溢出', link: '/codeSnippet/project/css/24_10_22.md' }
-            ]
+              { text: 'overflow溢出', link: '/codeSnippet/project/css/24_10_22.md' },
+            ],
           },
           {
             text: 'network',
@@ -98,13 +100,13 @@ export default defineConfig({
           {
             text: 'ts',
             items: [
-              { text: 'ts接口返回参数', link: '/codeSnippet/project/ts/24_9_28.md' } ,
+              { text: 'ts接口返回参数', link: '/codeSnippet/project/ts/24_9_28.md' },
               { text: '深拷贝', link: '/codeSnippet/project/ts/24_9_19.md' },
               { text: 'useRef', link: '/codeSnippet/project/ts/24_9_12.md' },
               { text: '条件逻辑', link: '/codeSnippet/project/ts/24_9_6.md' },
               { text: '点击事件挂载', link: '/codeSnippet/project/ts/24_10_8.md' },
               { text: '判断首次进入', link: '/codeSnippet/project/ts/24_10_9.md' },
-              { text: '捕捉错误', link:'/codeSnippet/project/ts/24_10_17.md'}
+              { text: '捕捉错误', link: '/codeSnippet/project/ts/24_10_17.md' }
             ]
           }
         ]
@@ -181,7 +183,8 @@ export default defineConfig({
               { text: 'tcp', link: '/frontend/network/tcp.md' },
               { text: 'get和post的区别', link: '/frontend/network/getAndPost.md' },
               { text: 'http1.0/1.1/2.0/3.0', link: '/frontend/network/http.md' },
-              { text: '状态码', link: '/frontend/network/statusCode.md' }
+              { text: '状态码', link: '/frontend/network/statusCode.md' },
+              { text: '强缓存和协商缓存', link: '/frontend/network/cache.md' }
             ]
           },
           {
@@ -228,7 +231,8 @@ export default defineConfig({
             text: 'CSS',
             items: [
               { text: '居中对齐', link: '/frontend/css/center.md' },
-              { text: 'BFC', link: '/frontend/css/bfc.md' }
+              { text: 'BFC', link: '/frontend/css/bfc.md' },
+              { text: 'box-sizing', link: '/frontend/css/box-sizing.md' }
             ]
           }
         ],
@@ -243,6 +247,12 @@ export default defineConfig({
               { text: '错误控制和redis限流', link: '/server/node/errorControl.md' }
             ]
           },
+          {
+            text: 'Redis',
+            items: [
+              { text: '缓存击穿/雪崩/穿透', link: '/server/redis/hotspot.md' }
+            ]
+          }
         ],
       },
       {
@@ -304,11 +314,13 @@ export default defineConfig({
           }
         ]
       },
-      {text: '面试总结',
-        items:[
-          {text: '算法题',
+      {
+        text: '面试总结',
+        items: [
+          {
+            text: '算法题',
             items: [
-              {text: '数组中出现两次的值', link: '/interview/code/numberTwice.md'}
+              { text: '数组中出现两次的值', link: '/interview/code/numberTwice.md' }
             ]
           }
         ]
