@@ -88,6 +88,7 @@ export default defineConfig({
               { text: 'clsx', link: '/codeSnippet/project/css/24_9_25.md' },
               { text: 'flex:1', link: '/codeSnippet/project/css/24_9_28.md' },
               { text: 'overflow溢出', link: '/codeSnippet/project/css/24_10_22.md' },
+              { text: '修改antd样式', link: '/codeSnippet/project/css/modify_antd_style.md'}
             ],
           },
           {
