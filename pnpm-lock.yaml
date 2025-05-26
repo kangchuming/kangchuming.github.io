@@ -7,10 +7,14 @@ settings:
 importers:
 
   .:
+    dependencies:
+      pnpm:
+        specifier: ^10.11.0
+        version: 10.11.0
     devDependencies:
       vitepress:
         specifier: ^1.0.2
-        version: 1.0.2(@algolia/client-search@4.23.2)(search-insights@2.13.0)
+        version: 1.0.2(@algolia/client-search@4.23.2)(postcss@8.4.38)(search-insights@2.13.0)
 
 packages:
 
@@ -506,6 +510,11 @@ packages:
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
+  pnpm@10.11.0:
+    resolution: {integrity: sha512-ZUBYP0HMX2KOs9l3Ps7oAvT575kjzEW2mJD7R5kdSwkpZGlOw6T3OKQgyRijMwYsi5JdMS9C5PDCY+tgNVH5dw==}
+    engines: {node: '>=18.12'}
+    hasBin: true
+
   postcss@8.4.38:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
     engines: {node: ^10 || ^12 || >=14}
@@ -740,6 +749,7 @@ snapshots:
       '@algolia/autocomplete-preset-algolia': 1.9.3(@algolia/client-search@4.23.2)(algoliasearch@4.23.2)
       '@docsearch/css': 3.6.0
       algoliasearch: 4.23.2
+    optionalDependencies:
       search-insights: 2.13.0
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -970,8 +980,9 @@ snapshots:
     dependencies:
       '@vueuse/core': 10.9.0(vue@3.4.21)
       '@vueuse/shared': 10.9.0(vue@3.4.21)
-      focus-trap: 7.5.4
       vue-demi: 0.14.7(vue@3.4.21)
+    optionalDependencies:
+      focus-trap: 7.5.4
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -1060,6 +1071,8 @@ snapshots:
 
   picocolors@1.0.0: {}
 
+  pnpm@10.11.0: {}
+
   postcss@8.4.38:
     dependencies:
       nanoid: 3.3.7
@@ -1113,7 +1126,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  vitepress@1.0.2(@algolia/client-search@4.23.2)(search-insights@2.13.0):
+  vitepress@1.0.2(@algolia/client-search@4.23.2)(postcss@8.4.38)(search-insights@2.13.0):
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.2)(search-insights@2.13.0)
@@ -1130,6 +1143,8 @@ snapshots:
       shiki: 1.2.3
       vite: 5.2.7
       vue: 3.4.21
+    optionalDependencies:
+      postcss: 8.4.38
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/node'
