@@ -89,7 +89,8 @@ export default defineConfig({
               { text: 'flex:1', link: '/codeSnippet/project/css/24_9_28.md' },
               { text: 'overflow溢出', link: '/codeSnippet/project/css/24_10_22.md' },
               { text: '修改antd样式', link: '/codeSnippet/project/css/modify_antd_style.md'},
-              { text: 'antd-customRequest使用总结', link: '/codeSnippet/project/css/upload-customRequest.md'}
+              { text: 'antd-customRequest使用总结', link: '/codeSnippet/project/css/upload-customRequest.md'},
+              { text: '最大宽度和居中总结', link: '/codeSnippet/project/css/layout-center-maxwidth.md'}
             ],
           },
           {
