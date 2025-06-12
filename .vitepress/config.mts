@@ -115,7 +115,7 @@ export default defineConfig({
           {
             text: 'bug-fix',
             items: [
-              {text: '修复防抖造成的bug', link: '/codeSnippet/projec/bugFix/debounce_bug.md'}
+              {text: '修复防抖造成的bug', link: '/codeSnippet/project/bugFix/debounce_bug.md'}
             ]
           }
         ]
