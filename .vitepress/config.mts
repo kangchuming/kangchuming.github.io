@@ -111,6 +111,12 @@ export default defineConfig({
               { text: '判断首次进入', link: '/codeSnippet/project/ts/24_10_9.md' },
               { text: '捕捉错误', link: '/codeSnippet/project/ts/24_10_17.md' }
             ]
+          },
+          {
+            text: 'bug-fix',
+            items: [
+              {text: '修复防抖造成的bug', link: '/codeSnippet/projec/bugFix/debounce_bug.md'}
+            ]
           }
         ]
       },
