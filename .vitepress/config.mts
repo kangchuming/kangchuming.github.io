@@ -110,7 +110,8 @@ export default defineConfig({
               { text: '条件逻辑', link: '/codeSnippet/project/ts/24_9_6.md' },
               { text: '点击事件挂载', link: '/codeSnippet/project/ts/24_10_8.md' },
               { text: '判断首次进入', link: '/codeSnippet/project/ts/24_10_9.md' },
-              { text: '捕捉错误', link: '/codeSnippet/project/ts/24_10_17.md' }
+              { text: '捕捉错误', link: '/codeSnippet/project/ts/24_10_17.md' },
+              {text: '多条件状态机', link: '/codeSnippet/project/ts/multiState_machine.md'}
             ]
           },
           {
