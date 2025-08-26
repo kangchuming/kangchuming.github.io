@@ -16,6 +16,6 @@
     "vitepress": "^1.0.2"
   },
   "dependencies": {
-    "pnpm": "^10.11.0"
+    "pnpm": "^10.15.0"
   }
 }
