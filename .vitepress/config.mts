@@ -91,7 +91,8 @@ export default defineConfig({
               { text: '修改antd样式', link: '/codeSnippet/project/css/modify_antd_style.md'},
               { text: 'antd-customRequest使用总结', link: '/codeSnippet/project/css/upload-customRequest.md'},
               { text: '最大宽度和居中总结', link: '/codeSnippet/project/css/layout-center-maxwidth.md'},
-              {text: '自适应', link: '/codeSnippet/project/css/adaptive.md'}
+              {text: '自适应', link: '/codeSnippet/project/css/adaptive.md'},
+              {text: '条件样式', link: '/codeSnippet/project/css/conditionalRender.md'}
             ],
           },
           {
