@@ -114,7 +114,8 @@ export default defineConfig({
               { text: '捕捉错误', link: '/codeSnippet/project/ts/24_10_17.md' },
               {text: '多条件状态机', link: '/codeSnippet/project/ts/multiState_machine.md'},
               { text: '条件传参', link: '/codeSnippet/project/ts/conditional_parameter_passing.md'},
-              {text: '时间戳转换', link: '/codeSnippet/project/ts/timeParese.md'}
+              {text: '时间戳转换', link: '/codeSnippet/project/ts/timeParese.md'},
+              {text: '数字显式转换', link: '/codeSnippet/project/ts/explicitConversion.md'}
             ]
           },
           {
