@@ -116,7 +116,8 @@ export default defineConfig({
               {text: '多条件状态机', link: '/codeSnippet/project/ts/multiState_machine.md'},
               { text: '条件传参', link: '/codeSnippet/project/ts/conditional_parameter_passing.md'},
               {text: '时间戳转换', link: '/codeSnippet/project/ts/timeParese.md'},
-              {text: '数字显式转换', link: '/codeSnippet/project/ts/explicitConversion.md'}
+              {text: '数字显式转换', link: '/codeSnippet/project/ts/explicitConversion.md'},
+              {text: '封装图片上传', link: '/codeSnippet/project/ts/uploadImg.md'}
             ]
           },
           {
