@@ -99,7 +99,8 @@ export default defineConfig({
             text: 'network',
             items: [
               { text: '接口传参', link: '/codeSnippet/project/network/24_9_28.md' },
-              { text: 'HTTP1.0/1.1/2.0', link: '/codeSnippet/project/network/http.md' }
+              { text: 'HTTP1.0/1.1/2.0', link: '/codeSnippet/project/network/http.md' },
+              { text: 'query vs body', link: '/codeSnippet/project/network/query_vs_body.md'},
             ]
           },
           {
