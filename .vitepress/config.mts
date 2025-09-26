@@ -15,6 +15,12 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: '失败总结',
+        items: [
+          { text: '失败总结', link: '/Summarize/Summarize.md' },
+        ]
+      },
+      {
         text: 'Project',
         items: [
           { text: '虚拟列表', link: '/project/virtual-list' },
@@ -92,7 +98,8 @@ export default defineConfig({
               { text: 'antd-customRequest使用总结', link: '/codeSnippet/project/css/upload-customRequest.md'},
               { text: '最大宽度和居中总结', link: '/codeSnippet/project/css/layout-center-maxwidth.md'},
               {text: '自适应', link: '/codeSnippet/project/css/adaptive.md'},
-              {text: '条件样式', link: '/codeSnippet/project/css/conditionalRender.md'}
+              {text: '条件样式', link: '/codeSnippet/project/css/conditionalRender.md'},
+              {text: 'js控制css', link: '/codeSnippet/project/css/carton.md'}
             ],
           },
           {
