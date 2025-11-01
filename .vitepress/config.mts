@@ -182,7 +182,8 @@ export default defineConfig({
               { text: 'React Vs Vue', link: '/frontend/react/react-vue' },
               { text: 'React Fiber', link: '/frontend/react/fiber.md' },
               {text: '手写useEffect', link: '/frontend/react/useEffect.md'},
-              {text: 'entries、fromEntries和map', link: '/frontend/react/Object.entry-Object.fromEntry.md'}
+              {text: 'entries、fromEntries和map', link: '/frontend/react/Object.entry-Object.fromEntry.md'},
+              {text: '扩展运算符', link: '/frontend/react/spread.md'}
             ]
           },
           {
