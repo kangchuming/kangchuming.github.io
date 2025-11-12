@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "康楚明-个人记录",
+  description: "个人记录",
   srcDir: './src',
   base: '/',
   themeConfig: {
@@ -176,6 +176,12 @@ export default defineConfig({
       {
         text: 'Frontend',
         items: [
+          {
+            text: 'Js',
+            items: [
+              { text: '列表组件设计及问题记录', link: '/frontend/js/ComponentDesign/List.md' },
+            ]
+          },
           {
             text: 'React',
             items: [
