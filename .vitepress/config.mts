@@ -179,11 +179,14 @@ export default defineConfig({
           {
             text: 'React',
             items: [
-              { text: 'React Vs Vue', link: '/frontend/react/react-vue' },
+              { text: 'React Vs Vue', link: '/frontend/react/react-vue.md' },
               { text: 'React Fiber', link: '/frontend/react/fiber.md' },
               {text: '手写useEffect', link: '/frontend/react/useEffect.md'},
               {text: 'entries、fromEntries和map', link: '/frontend/react/Object.entry-Object.fromEntry.md'},
-              {text: '扩展运算符', link: '/frontend/react/spread.md'}
+              {text: '扩展运算符', link: '/frontend/react/spread.md'},
+              {text: 'Form组件', link: '/frontend/react/form.md'},
+              {text: 'Dialog组件', link: '/frontend/react/dialog.md'},
+              {text: 'useFetch组件', link: 'frontend/js/useFetch.md'}
             ]
           },
           {
