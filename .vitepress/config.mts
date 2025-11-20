@@ -192,7 +192,8 @@ export default defineConfig({
               {text: '扩展运算符', link: '/frontend/react/spread.md'},
               {text: 'Form组件', link: '/frontend/react/form.md'},
               {text: 'Dialog组件', link: '/frontend/react/dialog.md'},
-              {text: 'useFetch组件', link: 'frontend/js/useFetch.md'}
+              {text: 'useFetch组件', link: 'frontend/js/useFetch.md'},
+              {text: 'useToggle组件', link: 'frontend/js/useToggle.md'},
             ]
           },
           {
