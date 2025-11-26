@@ -221,7 +221,8 @@ export default defineConfig({
               { text: 'get和post的区别', link: '/frontend/network/getAndPost.md' },
               { text: 'http1.0/1.1/2.0/3.0', link: '/frontend/network/http.md' },
               { text: '状态码', link: '/frontend/network/statusCode.md' },
-              { text: '强缓存和协商缓存', link: '/frontend/network/cache.md' }
+              { text: '强缓存和协商缓存', link: '/frontend/network/cache.md' },
+              { text: 'get和post传参的区别', link: '/frontend/network/getAndPostparmas.md'},
             ]
           },
           {
