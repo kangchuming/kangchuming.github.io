@@ -192,8 +192,9 @@ export default defineConfig({
               {text: '扩展运算符', link: '/frontend/react/spread.md'},
               {text: 'Form组件', link: '/frontend/react/form.md'},
               {text: 'Dialog组件', link: '/frontend/react/dialog.md'},
-              {text: 'useFetch组件', link: 'frontend/js/useFetch.md'},
-              {text: 'useToggle组件', link: 'frontend/js/useToggle.md'},
+              {text: 'useFetch组件', link: 'frontend/react/useFetch.md'},
+              {text: 'useToggle组件', link: 'frontend/react/useToggle.md'},
+              {text: '回调值注入器模式', link: 'frontend/react/callbackValueInjector.md'}
             ]
           },
           {
